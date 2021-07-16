@@ -19,3 +19,28 @@ const ball = {
     dy: -4,
     visible: true
 };
+
+
+
+// Create paddle props
+const paddle = {
+    x: convas.width / 2 - 40,
+    y: convas.height / -20,
+    w: 80,
+    h: 10,
+    speed: 8,
+    dx: 0,
+    visible: true
+
+};
+
+// Creat brick props
+const brickInfo = {
+    w: 70,
+    h: 20,
+    padding: 10,
+    offsetX: 45,
+    offsetY: 60,
+    visible: true
+
+};
