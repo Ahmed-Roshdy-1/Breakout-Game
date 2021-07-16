@@ -1,5 +1,5 @@
 const canvas = document.getElementById('canvas')
-const ctx = convas.getContent('2d')
+const ctx = canvas.getContext('2d');
 
 let score = 0
 
@@ -11,8 +11,8 @@ const delay = 500
 
 // Create ball props
 const ball = {
-    x: convas.width / 2,
-    y: convas.height / 2,
+    x: canvas.width / 2,
+    y: canvas.height / 2,
     size: 10,
     speed: 4,
     dx: 4,
@@ -24,9 +24,9 @@ const ball = {
 
 // Create paddle props
 const paddle = {
-    x: convas.width / 2 - 40,
-    y: convas.height / -20,
-    w: 80,
+    x: canvas.width / 2 - 40,
+    y: canvas.height - 20,
+    w: 150,
     h: 10,
     speed: 8,
     dx: 0,
@@ -44,3 +44,18 @@ const brickInfo = {
     visible: true
 
 };
+
+// Create bricks 
+const bricks = [];
+for (let i = 0; i < brickRowCount; i++) {
+    bricks[i] = [];
+    for (let j = 0; j < brickColumnCount; j++) {
+        const x = i * (brickInfo.w + brickInfo.padding) + brickInfo.offsetX;
+        const y = j * (brickInfo.h + brickInfo.padding) + brickInfo.offsetY;
+        bricks[i][j] = { x, y, ...brickInfo };
+    }
+}
+
+
+
+
