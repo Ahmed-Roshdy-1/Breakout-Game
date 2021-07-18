@@ -86,10 +86,17 @@ function drawBall(){
 
 
 
-// calling all function
+// Draw eveything
+function draw(){
+    drawBall();
+    deawPaddle();
+}
 
-drawBall();
-deawPaddle();
+
+// calling all function
+draw();
+
+
 
 
 
