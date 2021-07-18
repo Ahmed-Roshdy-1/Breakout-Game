@@ -10,3 +10,8 @@
 ### ✅ Add collision detection
 ### ✅ Keep score
 ### ✅ Add rules button with slider
+
+
+## Screenshots
+![Screenshot (336)](https://user-images.githubusercontent.com/65695097/126085157-858444ed-4da0-41a2-8a7e-333b1c66a4e8.png)
+
