@@ -58,4 +58,19 @@ for (let i = 0; i < brickRowCount; i++) {
 
 
 
+function drawBall(){
+    ctx.beginpath();
+    ctx.arc(ball.x,ball.y,ball.size,0,Math.PI*2)
+    ctx.fillStyle='#450920'
+    ctx.fill()
+    ctx.closePath()
+}
+
+
+
+
+drawBall()
+
+
+
 
