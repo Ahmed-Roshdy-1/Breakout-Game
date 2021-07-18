@@ -3,8 +3,8 @@ const ctx = canvas.getContext('2d');
 
 let score = 0
 
-const brickRowCount = 9
-const brickColumnCount = 5
+const brickRowCount = 17
+const brickColumnCount = 7
 const delay = 500
 
 
@@ -60,6 +60,10 @@ for (let i = 0; i < brickRowCount; i++) {
 
 
 
+  
+
+
+
 // Draw paddle props
  function deawPaddle(){
     ctx.beginPath();
@@ -82,19 +86,35 @@ function drawBall(){
 
 
 
-
-
+// Draw bricks on canvas
+function drawBricks(){
+    bricks.forEach(column=>{
+        column.forEach(brick=>{
+            ctx.beginPath()
+            ctx.rect(brick.x, brick.y, brick.w, brick.h)
+            ctx.fillStyle = brick.visible ? '#450920' :'transparent';
+            ctx.fill();
+            ctx.closePath()
+        })
+    })
+}
 
 //Draw score on canvas
 function drawScore(){
     ctx.font ='20px Arial'
     ctx.fillText(`Score: ${score}`,canvas.width-100,30)
 }
+
+
+
+
+
 // Draw eveything
 function draw(){
-    drawBall();
-    deawPaddle();
+    drawBall()
+    deawPaddle()
     drawScore()
+    drawBricks()
 }
 
 
