@@ -18,6 +18,7 @@ const ball = {
     dx: 4,
     dy: -4,
     visible: true
+    
 };
 
 
@@ -59,7 +60,7 @@ for (let i = 0; i < brickRowCount; i++) {
 
 
 function drawBall(){
-    ctx.beginpath();
+    ctx.beginPath();
     ctx.arc(ball.x,ball.y,ball.size,0,Math.PI*2)
     ctx.fillStyle='#450920'
     ctx.fill()
@@ -69,7 +70,7 @@ function drawBall(){
 
 
 
-drawBall()
+drawBall();
 
 
 
