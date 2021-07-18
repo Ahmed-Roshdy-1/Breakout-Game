@@ -155,12 +155,92 @@ function movePaddle(){
 
 
 
+// Move ball on canvas
+function moveBall(){
+    ball.x += ball.dx
+    ball.y += ball.dy
+
+   // wall coollision (right/left)
+    if(ball.x + ball.size > canvas.width || ball.x - ball.size < 0){
+
+        ball.dx *= -1 // to move the ball to the other side when it hit the border
+    }
+    // wall coollision (top/bottom)
+    if(ball.y + ball.size > canvas.height || ball.y - ball.size < 0){
+        
+        ball.dy *= -1 // to move the ball to the other side when it hit the border
+    }
+
+    // paddle collision
+    if(
+        ball.x - ball.size > paddle.x &&
+        ball.x + ball.size < paddle.x + paddle.w &&
+        ball.y + ball.size >paddle.y
+        ){
+            ball.dy =-ball.speed
+        }
+
+
+    // Brick collision
+    bricks.forEach(column =>{
+        column.forEach(brick => {
+            if(brick.visible){
+                if(
+                    ball.x - ball.size > brick.x && // left brick side check
+                    ball.x + ball.size < brick.x + brick.w && // right brick side check
+                    ball.y + ball.size > brick.y  && // top brick side check
+                    ball.y - ball.size < brick.y + brick.h // botton brick side chech
+                ){
+                    ball.dy *= -1
+                    brick.visible = false
+
+                    increaseScore()
+                    
+                }
+            }
+        })
+    })
+
+    // hit bottom wall - lose
+    if(ball.y + ball.size > canvas.height){
+         showAllBricks()
+         score=0
+    }
+
+
+
+}
+
+// Increase score
+function increaseScore(){
+    score++;
+    if(score % (brickRowCount * brickRowCount) === 0){
+        showAllBricks()
+    }
+}
+
+
+// Make all bricks appear
+function showAllBricks(){
+    bricks.forEach(column =>{
+        column.forEach(brick=> brick.visible =true)
+    })
+
+}
+
+
+
+
+
+
+
 
 
 // Update canvas drawing and animation
 function update(){
 
     movePaddle()
+    moveBall()
 
     // calling all function
     draw()
