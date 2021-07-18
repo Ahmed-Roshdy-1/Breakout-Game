@@ -60,9 +60,6 @@ for (let i = 0; i < brickRowCount; i++) {
 
 
 
-  
-
-
 
 // Draw paddle props
  function deawPaddle(){
@@ -99,11 +96,21 @@ function drawBricks(){
     })
 }
 
+
+
 //Draw score on canvas
 function drawScore(){
     ctx.font ='20px Arial'
     ctx.fillText(`Score: ${score}`,canvas.width-100,30)
 }
+
+
+
+
+
+
+
+
 
 
 
@@ -119,10 +126,46 @@ function draw(){
 
 
 
+//    Animation
 
 
-// calling all function
-draw();
+
+// Move paddle on canvas
+function movePaddle(){
+    paddle.x += paddle.dx
+
+    // wall detection 
+    if(paddle.x + paddle.w >canvas.width){
+        paddle.x = canvas.width - paddle.w
+    }
+
+    if(paddle.x < 0){
+        paddle.x = 0
+    }
+
+} 
+
+
+
+// Update canvas drawing and animation
+function update(){
+    movePaddle()
+
+    // calling all function
+    draw();
+
+}
+
+
+
+// calling all update function
+update();
+
+
+// Keyboard handlers
+document.addEventListener('keydown',keyDown)
+document.addEventListener('keyUp',keyUp)
+ 
 
 
 
