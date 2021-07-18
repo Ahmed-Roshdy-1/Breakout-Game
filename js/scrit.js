@@ -25,9 +25,9 @@ const ball = {
 
 // Create paddle props
 const paddle = {
-    x: canvas.width / 2 - 40,
-    y: canvas.height - 20,
-    w: 150,
+    x: canvas.width / 2 - 90,
+    y: canvas.height - 25,
+    w: 200,
     h: 10,
     speed: 8,
     dx: 0,
@@ -59,6 +59,19 @@ for (let i = 0; i < brickRowCount; i++) {
 
 
 
+
+// Draw paddle props
+ function deawPaddle(){
+    ctx.beginPath();
+    ctx.rect(paddle.x,paddle.y,paddle.w,paddle.h)
+    ctx.fillStyle='#450920'
+    ctx.fill()
+    ctx.closePath()
+
+ }
+
+
+// Draw ball on canvas
 function drawBall(){
     ctx.beginPath();
     ctx.arc(ball.x,ball.y,ball.size,0,Math.PI*2)
@@ -70,7 +83,13 @@ function drawBall(){
 
 
 
+
+
+
+// calling all function
+
 drawBall();
+deawPaddle();
 
 
 
