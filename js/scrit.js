@@ -29,7 +29,7 @@ const paddle = {
     y: canvas.height - 25,
     w: 200,
     h: 10,
-    speed: 8,
+    speed: 10,
     dx: 0,
     visible: true
 
@@ -118,11 +118,18 @@ function drawScore(){
 
 // Draw eveything
 function draw(){
+
+    ctx.clearRect(0,0,canvas.width,canvas.height)
     drawBall()
     deawPaddle()
     drawScore()
     drawBricks()
 }
+
+
+
+
+
 
 
 
@@ -147,25 +154,53 @@ function movePaddle(){
 
 
 
+
+
+
 // Update canvas drawing and animation
 function update(){
+
     movePaddle()
 
     // calling all function
-    draw();
+    draw()
+
+
+    //request Animation Frame to updete the frame
+    requestAnimationFrame(update);
 
 }
-
-
 
 // calling all update function
 update();
 
 
-// Keyboard handlers
-document.addEventListener('keydown',keyDown)
-document.addEventListener('keyUp',keyUp)
- 
+
+
+
+
+// Keydown event
+function keyDown(e) {
+    if (e.key === 'Right' || e.key === 'ArrowRight') {
+      paddle.dx = paddle.speed;
+    } else if (e.key === 'Left' || e.key === 'ArrowLeft') {
+      paddle.dx = -paddle.speed;
+    }
+  }
+  // Keyup event
+  function keyUp(e) {
+    if (
+      e.key === 'Right' ||
+      e.key === 'ArrowRight' ||
+      e.key === 'Left' ||
+      e.key === 'ArrowLeft'
+    ) {
+      paddle.dx = 0;
+    }
+  }
+  // Keyboard event handlers
+  document.addEventListener('keydown', keyDown);
+  document.addEventListener('keyup', keyUp);
 
 
 
