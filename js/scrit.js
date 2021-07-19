@@ -27,7 +27,7 @@ const ball = {
 const paddle = {
     x: canvas.width / 2 - 90,
     y: canvas.height - 25,
-    w: 200,
+    w: 150,
     h: 10,
     speed: 10,
     dx: 0,
@@ -175,9 +175,9 @@ function moveBall(){
     if(
         ball.x - ball.size > paddle.x &&
         ball.x + ball.size < paddle.x + paddle.w &&
-        ball.y + ball.size >paddle.y
+        ball.y + ball.size > paddle.y
         ){
-            ball.dy =-ball.speed
+            ball.dy = -ball.speed
         }
 
 
@@ -202,10 +202,12 @@ function moveBall(){
     })
 
     // hit bottom wall - lose
-    if(ball.y + ball.size > canvas.height){
+    if(ball.y + ball.size > canvas.height || score === 119 ){
          showAllBricks()
          score=0
     }
+
+    
 
 
 
@@ -223,7 +225,7 @@ function increaseScore(){
 // Make all bricks appear
 function showAllBricks(){
     bricks.forEach(column =>{
-        column.forEach(brick=> brick.visible =true)
+        column.forEach(brick=> brick.visible =   true)
     })
 
 }
