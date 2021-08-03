@@ -1,5 +1,5 @@
 # Breakout-Game [See live demo of the game ](https://ahmed-roshdy-1.github.io/Breakout-Game/Index)
-## Game where you control a paddle with the arrow keys to bounce a ball up to break bricks. This app uses the HTML5 canvas element and API
+## Game where you control a paddle with the arrow keys to bounce a ball up to break bricks. This app uses the HTML5 canvas element 
 
 
 ## Project Specifications
